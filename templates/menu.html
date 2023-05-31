@@ -1,0 +1,42 @@
+<html>
+    <head>
+
+    {% extends "layout.html" %}
+
+    {% block content %}
+		<script src="../static/jquery.js"></script>
+    <div class="container">
+        <div class="jumbotron">
+            <a href="/menu">
+                <img src="/static/logo/logo1.png" title="Komusho_logo1">
+            </a>
+						<hr>
+            <div class="row">
+                <a href='/logout' class='col-xl-offset-7 col-xl-1 ml-3'>Logout</a>
+            </div>
+
+            <hr>
+            <div class="container marketing">
+                <div class="row">
+                  <div class="col-lg-4">
+                    <img class="rounded-circle" src="/static/logo/gazo1.jpg" alt="Generic placeholder image" width="140" height="140">
+                    <h2>セッション</h2>
+                    <p><a class="btn btn-secondary" href="/session" role="button">View details »</a></p>
+                  </div>
+									<div class="col-lg-4">
+                    <img class="rounded-circle" src="/static/logo/gazo2.jpg" alt="Generic placeholder image" width="140" height="140">
+                    <h2>顧客情報</h2>
+                    <p><a class="btn btn-secondary" href="/addkokyaku" role="button">View details »</a></p>
+                  </div>
+                  <div class="col-lg-4">
+                    <img class="rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
+                    <h2>支払い確認</h2>
+                    <p><a class="btn btn-secondary" href="/menu" role="button">View details »</a></p>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</html>
+
+{% endblock %}

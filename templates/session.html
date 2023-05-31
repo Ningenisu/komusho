@@ -1,0 +1,67 @@
+<html>
+		<script src="../static/js/session.js"></script>
+		<script src="../static/jquery.js"></script>
+    <head>
+
+    {% extends "layout.html" %}
+
+    {% block content %}
+    
+    <div class="container">
+        <div class="jumbotron">
+            <a href="/menu">
+                <img src="/static/logo/logo1.png" title="Komusho_logo1">
+            </a>
+            <hr>
+
+            <div class="container-fluid">
+                <div class="row">
+                    <label class="col-xl-2 col-form-label">顧客</label>
+                    <div class="col-xl-4">
+                        <select class="form-control" name="selectKokyaku" id="selectKokyaku">
+                            {% for elem in kokyakuList %}
+                                    <option value='{{ elem[0] }}'>{{ elem[1] }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row  d-flex mt-2">
+                    <label class="col-xl-2 col-form-label">セッション日</label>
+                    <div class="col-xl-3">
+                        <input type='date' class="form-control" id='sessionAt1' name='start1'></input>
+                    </div>
+
+                    <label for="inputEmail3">&nbsp;&nbsp;～&nbsp;&nbsp;</label>
+                    <div class="col-xl-3">
+                        <input type='date' class="form-control" id='sessionAt2' name='start2'></input>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xl-2">
+                        <button type='submit' class='btn btn-primary d-flex mt-3' name='search' id='search'>検索</button> 
+                    </div>
+                    <div class="col-xl-2">
+                        <button type='submit' class='btn btn-success d-flex mt-3' name='addSession' id='addSession'>追加</button>
+                    </div>
+                </div>
+            </div>
+            <div class="row d-flex mt-3">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>顧客名</th>
+                            <th>セッション日時</th>
+                            <th>コース</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody id="dataList">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    {% endblock %}
+</html>

@@ -1,0 +1,43 @@
+<html>
+<head>
+
+{% extends "layout.html" %}
+
+{% block content %}
+<script src="../static/jquery.js"></script>
+<div class="container">
+    <div class="jumbotron">
+        <img src="/static/logo/logo2.png" title="Komusho_logo2">
+        <!-- img class="rounded" src="/static/logo/komushokun.svg" alt="Alternative text" width="70" height="100" -->
+        <hr>
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <ul>
+              {% for message in messages %}
+                <li class="text-danger">{{ message }}</li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        {% endwith %}
+
+        <div class="row">
+            <div class="col">
+                <form action='login' method='POST' class="form-inline">
+                    <div class="col-sm6">
+                        <input type='text' class="form-control" name='email' id='email' placeholder='email'/>
+                    </div>
+                    <label for="inputEmail3">&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    <div class="col-sm6">
+                        <input type='password' class="form-control" name='password' id='password' placeholder='password'/>
+                    </div>
+                    <label for="inputEmail3">&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    <div class="col-sm6">
+                        <button type='submit' class='btn btn-primary' name='submit'>ログイン</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+</html>

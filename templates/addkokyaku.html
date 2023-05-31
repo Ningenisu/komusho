@@ -1,0 +1,125 @@
+<html>
+	{% extends "layout.html" %}
+
+	{% block content %}
+	<script src="../static/js/addkokyaku.js"></script>
+	<script src="../static/jquery.js"></script>
+<head>
+<div class="container">
+    <div class="jumbotron">
+        <a href="/menu">
+            <img src="/static/logo/logo1.png" title="Komusho_logo1">
+        </a>
+        <hr>
+        <div class="row">
+					<label class="col-sm-1 col-form-label mr-0">顧客</label>
+					<div class="col-sm-3 ml-0">
+							<select class="form-control" name="selectKokyaku" id="selectKokyaku">
+								<option value=''>（新規登録）</option>
+									{% for elem in kokyakuList %}
+													<option value='{{ elem[0] }}'>{{ elem[1] }}</option>
+									{% endfor %}
+							</select>
+					</div>
+				</div>
+				<hr>
+				<div class="row">
+					<div class="col-sm-3">
+						<label class="form-label">*名前</label>
+						<input type='text' class="form-control" id='kokyakuName' data-value/>
+					</div>
+					<div class="col-sm-3">
+						<label class="form-label">*カナ</label>
+						<input type='text' class="form-control" id='kokyakuNameKana' data-value/>
+					</div>
+					<div class="col-sm-3">
+						<label class="form-label">メールアドレス</label>
+						<input type='text' class="form-control" id='email' placeholder="xxxxxx@example.com" data-value/>
+					</div>
+					<div class="col-sm-3">
+						<label class="form-label">電話番号</label>
+						<input type='text' class="form-control" id='tel' placeholder="06-XXXX-YYYY" data-value/>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-6">
+						<label class="form-label">住所</label>
+						<textarea type='text' class="form-control" id='jusho' rows="2" data-value></textarea>
+					</div>
+					<div class="col-sm-3">
+						<label class="form-label">生年月日</label>
+							<input type='date' class="form-control" id='birthday' data-value></input>
+					</div>
+					<div class="col-sm-3 mt-3">
+						<label>
+							<input type="radio" name="gender" value="1" checked>
+							男性
+						</label>
+						<label>
+							<input type="radio" name="gender" value="2">
+							女性
+						</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-3">
+						<label class="form-label">コース１</label>
+						<select class="form-control" id="courseId1" data-value>
+								<option value="">------------</option>
+								{% for elem in courseList %}
+											<option value='{{ elem[0] }}'>{{ elem[1] }}</option>
+								{% endfor %}
+						</select>
+					</div>
+					<div class="col-sm-3">
+						<label class="form-label">コース２</label>
+						<select class="form-control" id="courseId2" data-value>
+							<option value="">------------</option>
+							{% for elem in courseList %}
+										<option value='{{ elem[0] }}'>{{ elem[1] }}</option>
+							{% endfor %}
+						</select>
+					</div>
+					<div class="col-sm-3">
+						<label class="form-label">コース３</label>
+						<select class="form-control" id="courseId3" data-value>
+							<option value="">------------</option>
+							{% for elem in courseList %}
+										<option value='{{ elem[0] }}'>{{ elem[1] }}</option>
+							{% endfor %}
+						</select>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-9">
+						<label class="form-label d-flex mt-3">備考</label>
+						<textarea class="form-control" id="biko" rows="3" data-value></textarea>
+					</div>
+				</div>
+				<div class="row">
+						<div class="col d-flex mt-3">
+								<button type='submit' class='btn btn-primary mr-2' data-toggle="modal" data-target="#myModal">登録</button>
+								<button type='button' class='btn btn-secondary' onclick="history.back()" name='no'>キャンセル</button>
+						</div>
+				</div>
+    </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+		<div class="modal-header">
+			<h4 class="modal-title" id="myModalLabel">確認</h4>
+		</div>
+		<div class="modal-body">
+			登録しますか？
+		</div>
+		<div class="modal-footer">
+			<button type="button" class="btn btn-default" data-dismiss="modal">キャンセル</button>
+			<button type="button" class="btn btn-primary" data-toggle="modal" id="isOk" data-dismiss="modal">OK</button>
+		</div>
+		</div>
+	</div>
+</div>
+{% endblock %}
+</html>
